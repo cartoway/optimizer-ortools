@@ -1,9 +1,6 @@
-ARG RUBY_VERSION
-ARG ARCHITECTURE
-
-FROM ${ARCHITECTURE}ruby:${RUBY_VERSION}
-
-ARG ORTOOLS_URL=${ORTOOLS_URL}
+FROM ruby:3.2-bookworm
+ENTRYPOINT []
+CMD ["/bin/bash"]
 
 LABEL maintainer="Mapotempo <tech@mapotempo.com>"
 
@@ -14,7 +11,8 @@ RUN apt-get update > /dev/null && \
 
 ADD . /srv/or-tools
 
-RUN wget -qO- $ORTOOLS_URL | tar xz --strip-components=1 -C /srv/or-tools
+RUN wget -qO- https://github.com/google/or-tools/releases/download/v7.8/or-tools_debian-10_v7.8.7959.tar.gz | \
+    tar xz --strip-components=1 -C /srv/or-tools
 
 ADD . /srv/optimizer-ortools
 

@@ -1,33 +1,16 @@
-name: Docker Image CI
+name: CI test
 
 on:
   push:
+    branches: [ master ]
   pull_request:
-    types: [opened, synchronize, reopened]
-
-env:
-  ORTOOLS_VERSION: v7.8
-  REGISTRY: ${{ secrets.REGISTRY }}
-  REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
-  REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
-  REPOSITORY: ${{ github.repository }}
+    branches: [ master ]
 
 jobs:
-  build_image:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
+
       - name: Build image
-        id: build
-        run: ./.github/actions/build.sh
-        shell: bash
-      - name: Deliver
-        if: github.event_name == 'push' && (
-              startsWith(github.ref, 'refs/tags/v') ||
-              github.ref == 'refs/heads/dev'
-            )
-        env:
-          IMAGE_NAME: ${{ steps.build.outputs.image_name }}
-        run: ./.github/actions/deliver.sh
-        shell: bash
+        run: docker-compose build
