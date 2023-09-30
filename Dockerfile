@@ -2,8 +2,6 @@ FROM ruby:3.2-bookworm
 ENTRYPOINT []
 CMD ["/bin/bash"]
 
-LABEL maintainer="Mapotempo <tech@mapotempo.com>"
-
 WORKDIR /srv/
 
 RUN apt-get update > /dev/null && \

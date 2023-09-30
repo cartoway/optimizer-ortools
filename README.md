@@ -1,8 +1,6 @@
 optimizer-ortools
 =================
 
-[![Build Status](https://travis-ci.org/mapotempo/optimizer-ortools.svg?branch=master)](https://travis-ci.org/mapotempo/optimizer-ortools)
-
 Compute an optimized solution to the Vehicle Routing Problem with Time Windows and various constraints using OR-Tools.
 This wrapper is designed to be called through [Optimizer-API](https://github.com/Mapotempo/optimizer-api) and has been tested on Ubuntu 17.10, 18.04; Linux Mint 18; Debian 8, 10.
 
@@ -38,10 +36,3 @@ Dev
 After dev the code shall be formatted according to the style file of the project with the following command:
 
     clang-format -i *.cc *.h
-
-Continuous Integration
-======================
-In github settings, create the following secrets :
- - REGISTRY=registry.mapotempo.com
- - REGISTRY_USERNAME=name
- - REGISTRY_PASSWORD=pwd
