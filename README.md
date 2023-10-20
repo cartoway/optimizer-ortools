@@ -2,7 +2,7 @@ optimizer-ortools
 =================
 
 Compute an optimized solution to the Vehicle Routing Problem with Time Windows and various constraints using OR-Tools.
-This wrapper is designed to be called through [Optimizer-API](https://github.com/Mapotempo/optimizer-api) and has been tested on Ubuntu 17.10, 18.04; Linux Mint 18; Debian 8, 10.
+This wrapper is designed to be called through [Optimizer-API](https://github.com/cartoroute/optimizer-api) and has been tested on Ubuntu 17.10, 18.04; Linux Mint 18; Debian 8, 10.
 
 The current implementation has been tested with the version 7.8 of OR-Tools
 
