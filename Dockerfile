@@ -1,11 +1,14 @@
-FROM ruby:3.2-bookworm
+FROM ruby:3.2-slim-bookworm
 ENTRYPOINT []
 CMD ["/bin/bash"]
 
 WORKDIR /srv/
 
 RUN apt-get update > /dev/null && \
-  apt-get -y install git wget pkg-config build-essential cmake autoconf libtool zlib1g-dev lsb-release > /dev/null
+  apt-get -y install --no-install-recommends \
+    ca-certificates git wget pkg-config build-essential cmake autoconf libtool zlib1g-dev lsb-release \
+    > /dev/null && \
+  rm -rf /var/lib/apt/lists/*
 
 ADD . /srv/or-tools
 
