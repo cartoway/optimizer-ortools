@@ -1,4 +1,4 @@
-FROM ruby:3.2-slim-bookworm
+FROM ruby:3.2-slim-trixie
 ENTRYPOINT []
 CMD ["/bin/bash"]
 
@@ -18,4 +18,4 @@ RUN wget -qO- https://github.com/google/or-tools/releases/download/v7.8/or-tools
 ADD . /srv/optimizer-ortools
 
 WORKDIR /srv/optimizer-ortools
-RUN make tsp_simple
+RUN make local_clean tsp_simple
