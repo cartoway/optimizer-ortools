@@ -1,4 +1,4 @@
-FROM ruby:3.3.14-slim-trixie
+FROM ruby:3.4.13-slim-trixie
 ENTRYPOINT []
 CMD ["/bin/bash"]
 
